@@ -1,0 +1,41 @@
+<ion-view hide-tabs="true">
+  <ion-nav-title></ion-nav-title>
+  <ion-content>
+    <section>
+      <div class="theme-detail-head">
+        <img ng-src="{{theme.headpic}}">
+        <h2>{{theme.niceng}}</h2>
+        <p>{{theme.createTime | date : 'yyyy-MM-dd hh:mm'}}</p>
+      </div>
+      <h1 class="theme-detail-title">{{theme.title}}</h1>
+      <p class="theme-detail-content" ng-if="theme.content!='undefined'">{{theme.content}}</p>
+      <div class="theme-detail-image" ng-if="theme.fas!=null">
+        <img ng-src="{{img.attachmentPath}}" ng-repeat="img in theme.fas">
+      </div>
+      <div class="theme-footer">
+        <button class="icon energized theme-collection" collection="{{theme.isCollection}}" ng-if="!!theme.isCollection" ng-class="theme.isCollection=='0'?'ion-ios-star-outline':'ion-ios-star'"></button>
+        <button class="icon ion-ios-redo balanced theme-forward"></button>
+      </div>
+    </section>
+    <!--评论列表-->
+    <ion-list>
+      <ion-item class="item-icon-left">
+        <i class="icon ion-chatbox-working calm"></i>
+        评论{{theme.commentSize}}条
+      </ion-item>
+      <ion-item class="item-avatar" ng-repeat="comment in comments">
+        <img ng-src="{{comment.headpic}}">
+        <h2>{{comment.niceng}}</h2>
+        <p>{{comment.plTime | date: 'yyyy-MM-dd hh:mm'}}</p>
+        <p class="card-detail-news">{{comment.plContent}}</p>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="total > page" icon="ion-loading-c" on-infinite="getCommentList()" immediate-check="false"></ion-infinite-scroll>
+  </ion-content>
+  <ion-footer-bar class="bar-stable item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="search" placeholder="我也说一句..." ng-model="contentData.content">
+    </label>
+    <button class="button button-clear" ng-click="publish(contentData)">发送</button>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-view view-title="积分商城" hide-tabs="true">
+  <ion-content class="mall-bg">
+    <ul class="mall-list">
+      <li class="mall-box" ng-repeat="mallList in malls">
+        <img class="mall-image" ng-src="{{mallList.giftsLogo}}">
+        <h3 class="mall-title">{{mallList.giftsName}}</h3>
+        <p class="mall-integral">
+          <span class="assertive">{{mallList.needIntegra}}</span>分
+        </p>
+        <p class="mall-surplus">
+          剩余：
+          <span class="assertive">{{mallList.integraSize}}</span>
+          份
+        </p>
+        <button class="mall-btn" ng-click="exchange(mallList.id)">兑换</button>
+      </li>
+    </ul>
+    <ion-infinite-scroll ng-if="total > page" icon="ion-loading-c" on-infinite="getMallList()" immediate-check="false"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

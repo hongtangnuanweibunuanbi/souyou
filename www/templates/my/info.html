@@ -1,0 +1,49 @@
+<ion-view view-title="个人信息" hide-tabs="true">
+  <ion-content class="mall-bg">
+    <section>
+      <ion-list>
+        <ion-item class="item item-icon-right info-head" href="#/tab/info-head">
+          <p>头像</p>
+          <img ng-src="{{info.headpic}}">
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+      </ion-list>
+    </section>
+    <section class="home-section">
+      <ion-list>
+        <ion-item class="item item-icon-right" href="#/tab/info-name">
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          昵称
+          <span class="item-note">{{info.niceng}}</span>
+        </ion-item>
+        <ion-item class="item item-icon-right" href="#/tab/info-sex">
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          性别
+          <span class="item-note">
+            <i ng-if="info.sex=='0'">男</i>
+            <i ng-if="info.sex=='1'">女</i>
+          </span>
+        </ion-item>
+        <ion-item class="item item-icon-right" href="#/tab/info-age">
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          年龄
+          <span class="item-note">{{info.age}}</span>
+        </ion-item>
+      </ion-list>
+    </section>
+    <section class="home-section">
+      <ion-list>
+        <ion-item class="item item-icon-right">
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          电话
+          <span class="item-note">{{info.phone}}</span>
+        </ion-item>
+        <ion-item class="item item-icon-right" href="#/tab/info-autograph">
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          个性签名
+          <span class="item-note">{{info.pname}}</span>
+        </ion-item>
+      </ion-list>
+    </section>
+  </ion-content>
+</ion-view>

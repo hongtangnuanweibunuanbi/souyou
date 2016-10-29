@@ -1,0 +1,51 @@
+<ion-view view-title="新投票" hide-tabs="true">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="post(formData)">发帖</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <section class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="投票标题(50字以内)" maxlength="50" ng-model="formData.voteTitle">
+      </label>
+      <label class="item item-input">
+        <textarea placeholder="填写投票描述，让更多人参与投票(120字以内)" rows="5" maxlength="120" ng-model="formData.voteDescribe"></textarea>
+      </label>
+      <div class="pic-show">
+        <div class="pic-box" ng-repeat="item in thumb">
+          <img ng-src="{{item.imgSrc}}">
+          <i class="icon ion-ios-close pic-close" ng-if="item.imgSrc" ng-click="img_del($index)"></i>
+        </div>
+        <div class="add-pic">
+          <i class="icon ion-ios-plus-empty add-plus"></i>
+          <input type="file" class="add-file" accept="image/*" onchange="angular.element(this).scope().img_upload(this.files)">
+        </div>
+      </div>
+
+      <div class="item item-input">
+        <input type="text" placeholder="请输入15字以内的描述" ng-model="formData.option1">
+      </div>
+      <div class="item item-input">
+        <input type="text" placeholder="请输入15字以内的描述" ng-model="formData.option2">
+      </div>
+      <div class="item item-input item-icon-right" ng-repeat="(key,item) in items track by $index">
+        <input type="text" placeholder="请输入15字以内的描述" ng-model="items[key]">
+        <i class="icon ion-android-close stable" ng-click="Fn.del($index)"></i>
+      </div>
+      <button class="button button-full button-clear button-assertive" ng-click="Fn.add()">
+        <i class="icon ion-ios-plus-empty assertive"></i>
+        新建投票选项
+      </button>
+      <!--<ion-toggle ng-model="airplaneMode" toggle-class="toggle-assertive">支持多选</ion-toggle>-->
+      <!--<label class="item item-input item-select">-->
+        <!--<div class="input-label">-->
+          <!--投票有效期-->
+        <!--</div>-->
+        <!--<select>-->
+          <!--<option>1日</option>-->
+          <!--<option selected>1周</option>-->
+          <!--<option>1个月</option>-->
+        <!--</select>-->
+      <!--</label>-->
+    </section>
+  </ion-content>
+</ion-view>

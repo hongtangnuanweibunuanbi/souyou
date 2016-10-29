@@ -1,0 +1,8 @@
+<ion-view view-title="个人头像" hide-tabs="true">
+  <ion-content>
+    <div class="info-head-box">
+      <img src="{{head.thumb}}" alt="">
+      <input type="file" class="info-head-file" accept="image/*" onchange="angular.element(this).scope().img_upload(this.files)"/>
+    </div>
+  </ion-content>
+</ion-view>

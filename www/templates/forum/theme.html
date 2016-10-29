@@ -1,0 +1,25 @@
+<ion-view view-title="发表主题" hide-tabs="true">
+  <ion-nav-buttons side="right">
+    <button class="button" ng-click="post(formData)">发帖</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <form action="list">
+      <label class="item item-input">
+        <input type="text" placeholder="标题(50字以内)" maxlength="50" ng-model="formData.title">
+      </label>
+      <label class="item item-input">
+        <textarea placeholder="内容(120字以内)" rows="10" maxlength="120" ng-model="formData.content"></textarea>
+      </label>
+      <div class="pic-show">
+        <div class="pic-box" ng-repeat="item in thumb">
+          <img ng-src="{{item.imgSrc}}">
+          <i class="icon ion-ios-close pic-close" ng-if="item.imgSrc" ng-click="img_del($index)"></i>
+        </div>
+        <div class="add-pic">
+          <i class="icon ion-ios-plus-empty add-plus"></i>
+          <input type="file" class="add-file" accept="image/*" onchange="angular.element(this).scope().img_upload(this.files)">
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view view-title="热门新闻" hide-tabs="true">
+  <ion-content>
+    <div class="list">
+      <div class="item item-avatar">
+        <img ng-src="{{news.newLogo}}">
+        <h2>{{news.newTitle}}</h2>
+        <p>{{news.createTime | date : 'yyyy-MM-dd hh:mm:ss'}}</p>
+        <a class="button button-assertive button-small news-games-btn" href="#/tab/home-games-detail/{{news.gameId}}" ng-if="news.isGame=='1'">游戏详情</a>
+      </div>
+      <div class="item item-body news-body">
+        <p>{{news.newIntroduction}}</p>
+        <video class="full-image" ng-src="{{trustSrc(videos.filePath)}}" ng-repeat="videos in news.videos" ng-if="news.videos.length > 0" controls="controls" webkit-playsinline></video>
+        <img class="full-image" ng-src="{{images.filePath}}" ng-repeat="images in news.imgs" ng-if="news.imgs.length > 0">
+        <p ng-bind-html="news.newContent"></p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

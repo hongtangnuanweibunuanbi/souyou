@@ -1,0 +1,30 @@
+<ion-view view-title="帖子" hide-tabs="true">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-divider assertive" ng-if="vote.voteTitle!=null">置顶</ion-item>
+      <ion-item class="item-icon-left card-vote" href="#/tab/vote-detail/{{vote.id}}" ng-if="vote.voteTitle!=null">
+        <i class="icon ion-stats-bars energized"></i>
+        <h2 class="card-vote-title">{{vote.voteTitle}}</h2>
+      </ion-item>
+      <ion-item class="item-divider assertive" ng-if="card.length>0">看帖</ion-item>
+      <ion-item class="item-avatar card-item" ng-repeat="cards in card" href="#/tab/theme-detail/{{cards.id}}">
+        <img ng-src="{{cards.headpic}}">
+        <p class="card-name">{{cards.niceng}}</p>
+        <h2 class="card-title">{{cards.title}}</h2>
+        <p class="card-content" ng-if="cards.content!='undefined'">{{cards.content}}</p>
+        <div class="card-img" ng-if="cards.attachmentPath!=null">
+          <img ng-src="{{cards.attachmentPath}}">
+        </div>
+        <div class="card-footer">
+          <p class="card-time">{{cards.createTime| date : 'yyyy-MM-dd hh:mm'}}</p>
+          <a class="card-comment">
+            <i class="icon ion-ios-chatbubble"></i>
+            <span>{{cards.commentSize}}</span>
+          </a>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="total > page" icon="ion-loading-c" on-infinite="getCardList()" immediate-check="false"></ion-infinite-scroll>
+  </ion-content>
+  <publish is-admin="{{isAdmin}}" ng-if="!!isAdmin"></publish>
+</ion-view>

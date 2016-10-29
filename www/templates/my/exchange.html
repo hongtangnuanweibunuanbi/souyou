@@ -1,0 +1,13 @@
+<ion-view view-title="兑换记录" hide-tabs="true">
+  <ion-content overflow-scroll="true">
+    <ion-list>
+      <ion-item ng-repeat="exchange in exchangeRecord">
+        <h3>{{exchange.consumeExplain}}</h3>
+        <p>兑换码：</p>
+        <p class="selectable">{{exchange.giftsCode}}</p>
+        <span class="badge badge-assertive">-{{exchange.consumeNumber}}</span>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="total > page" icon="ion-loading-c" on-infinite="getExchangeRecord()" immediate-check="false"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

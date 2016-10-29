@@ -1,0 +1,27 @@
+<ion-view view-title="游戏详情" hide-tabs="true">
+  <div class="games-detail-box">
+    <ion-slide-box show-pager="false" auto-play="true" does-continue="true" ng-if="gamesInfo.imgs.length>0">
+      <ion-slide ng-repeat="images in gamesInfo.imgs">
+        <img class="games-image" ng-src="{{images.filePath}}">
+      </ion-slide>
+    </ion-slide-box>
+    <div class="games-detail">
+      <div class="games-detail-head">
+        <div class="games-detail-logo">
+          <img ng-src="{{gamesInfo.gameLogo}}">
+        </div>
+        <div class="padding-horizontal games-detail-title">
+          <p>{{gamesInfo.gameName}}</p>
+          <p>
+            <a class="button button-small button-assertive games-detail-download" ng-href="{{gamesInfo.gameOfficial}}">官网</a>
+            <button class="button button-small button-assertive">新手礼包</button>
+          </p>
+        </div>
+      </div>
+      <div class="games-novice-packs">
+        <a class="novice-packs-btn" ng-href="{{gamesInfo.gameDownload}}">游戏下载</a>
+      </div>
+      <p class="padding-horizontal games-detail-text">{{gamesInfo.gameIntroduction}}</p>
+    </div>
+  </div>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view hide-tabs="true">
+  <ion-nav-title></ion-nav-title>
+  <ion-content>
+    <section>
+      <div class="theme-detail-head">
+        <img ng-src="{{voteInfo.headpic}}">
+        <h2>{{voteInfo.niceng}}<span class="vote-Admin">管理员</span></h2>
+        <p>{{voteInfo.createTime | date:"yyyy-MM-dd hh:mm"}}</p>
+      </div>
+      <h1 class="theme-detail-title">{{voteInfo.voteTitle}}</h1>
+      <p class="theme-detail-content" ng-if="voteInfo.voteDescribe!='undefined'">{{voteInfo.voteDescribe}}</p>
+      <div class="theme-detail-image">
+        <img ng-src="{{images.imgPath}}" ng-repeat="images in voteInfo.voteAttachments" ng-if="voteInfo.voteAttachments.length>0">
+      </div>
+      <form class="list vote-form" ng-if="voteInfo.isVote=='0'" ng-submit="vote()">
+        <ion-checkbox class="item-divider" ng-checked="isSelected(options.id)" ng-value="options.id" ng-repeat="options in voteInfo.voteOptions" ng-click="updateSelection($event,options.id)" ng-change="onChange(options)" ng-model="options.checked">{{options.optionContent}}</ion-checkbox>
+        <div class="vote-detail-btn">
+          <button type="submit">投票</button>
+          <p class="vote-number">{{voteInfo.voteSum}}人参与投票</p>
+        </div>
+      </form>
+      <div class="padding vote-detail" ng-if="voteInfo.isVote=='1'" ng-repeat="results in voteInfo.voteOptions">
+        <div class="vote-box">
+          <p class="vote-title">{{results.optionContent}}：</p>
+          <progress value="{{results.optionNumber}}" max="{{voteInfo.voteSum}}"></progress>
+          <p class="votes">{{results.optionNumber}}票 {{results.optionNumber/voteInfo.voteSum | percentage}}</p>
+        </div>
+      </div>
+    </section>
+  </ion-content>
+</ion-view>
+
+

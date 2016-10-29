@@ -1,0 +1,44 @@
+<ion-view view-title="捜游">
+  <ion-nav-buttons side="right">
+    <a class="button" href="#/tab/home-sign">签到</a>
+  </ion-nav-buttons>
+  <ion-content>
+    <!--轮播图-->
+    <ion-slide-box show-pager="true" auto-play="true" does-continue="true" ng-if="banner.length>0">
+      <ion-slide ng-repeat="image in banner">
+        <a class="home-banner" ng-href="#/tab/home-games-detail/{{image.gameId}}">
+          <img ng-src="{{image.imgPath}}">
+        </a>
+      </ion-slide>
+    </ion-slide-box>
+    <!--轮播图-->
+    <section class="home-section">
+      <h1 class="padding-horizontal home-title home-games-title">
+        <i class="icon ion-fireball assertive"></i>
+        热门游戏
+      </h1>
+      <ion-scroll zooming="false" direction="x" paging="false" scrollbar-x="false">
+        <div class="row home-games">
+          <a class="col col-25 home-game" ng-repeat="games in games" ng-href="#/tab/home-games-detail/{{games.id}}">
+            <img ng-src="{{games.gameLogo}}">
+            <p ng-bind="games.gameName"></p>
+          </a>
+        </div>
+      </ion-scroll>
+    </section>
+
+    <section class="home-section">
+      <h1 class="padding-horizontal home-title">
+        <i class="icon ion-fireball assertive"></i>
+        热门新闻</h1>
+      <ion-list>
+        <ion-item class="item-thumbnail-left item-icon-right home-news-item" ng-repeat="newss in newss" href="#/tab/news-detail/{{newss.id}}">
+          <img ng-src="{{newss.newLogo}}">
+          <h2 class="home-news-title" ng-bind="newss.newTitle"></h2>
+          <p class="home-news-time">{{newss.createTime | date : 'yyyy-MM-dd hh:mm'}}</p>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+      </ion-list>
+    </section>
+  </ion-content>
+</ion-view>

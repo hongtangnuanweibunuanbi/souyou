@@ -1,0 +1,25 @@
+<ion-view view-title="签到" hide-tabs="true">
+  <ion-content class="sign-bg">
+    <section class="sign-box">
+      <p class="sign-title">已连续签到</p>
+      <p class="sign-title">
+        <i class="day">{{sign.signNumber}}</i>天
+      </p>
+      <div class="sign-btn-box">
+        <button class="sign-btn" ng-disabled="sign.isSign=='1'" ng-click="doSign()">
+          <span ng-if="sign.isSign=='0'">签到</span>
+          <span ng-if="sign.isSign=='1'">已签到</span>
+        </button>
+        <span class="sign-btn-text" ng-if="sign.isSign=='0'">{{sign.signIntegral}}个积分</span>
+        <span class="sign-btn-text" ng-if="sign.isSign=='1'">已领{{sign.signIntegral}}个积分</span>
+      </div>
+      <div>
+        <p class="sign-title">签到送积分规则</p>
+        <p class="sign-rule">1.首次签到，获得5积分</p>
+        <p class="sign-rule">2.每次签到，可获得2积分</p>
+        <p class="sign-rule">3.连续签到，可获得5积分</p>
+      </div>
+    </section>
+  </ion-content>
+</ion-view>
+

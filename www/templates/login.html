@@ -1,0 +1,27 @@
+<ion-view view-title="登录">
+  <ion-content>
+    <section>
+      <form name="loginForm" novalidate class="list card"  ng-submit="loginSubmit(loginDate)">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">账号</span>
+          <input type="text" name="username" placeholder="请输入手机号码" ng-model="loginDate.username" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">密码</span>
+          <input type="password" name="password" placeholder="请输入密码" ng-model="loginDate.password" required>
+        </label>
+        <label class="item">
+          <button type="submit" class="button button-assertive button-block">登录</button>
+        </label>
+      </form>
+      <div class="login-jump">
+        <div>
+          <a class="assertive" href="#/regist">注册账号</a>
+        </div>
+        <div>
+          <a class="assertive" href="#/forget-password">忘记密码</a>
+        </div>
+      </div>
+    </section>
+  </ion-content>
+</ion-view>

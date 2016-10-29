@@ -1,0 +1,18 @@
+<ion-view view-title="游戏">
+  <ion-content>
+    <section class="games-logo">
+      <img src="img/game-banner.png">
+    </section>
+    <ion-list>
+      <ion-item class="item-avatar item-icon-right games-item" ng-repeat="gamesList in games" href="#/tab/games-detail/{{gamesList.id}}">
+        <img ng-src="{{gamesList.gameLogo}}">
+        <div>
+          <h2 class="games-title" ng-bind="gamesList.gameName"></h2>
+          <p class="games-introduce" ng-bind="gamesList.gameKeyword"></p>
+        </div>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll ng-if="total > page" icon="ion-loading-c" on-infinite="getGamesList()" immediate-check="false"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

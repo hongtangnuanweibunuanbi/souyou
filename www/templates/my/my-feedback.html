@@ -1,0 +1,15 @@
+<ion-view view-title="意见反馈" hide-tabs="true">
+  <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button">保存</button>-->
+  <!--</ion-nav-buttons>-->
+  <ion-content>
+    <form class="list card" ng-submit="feedback(feedbackData)">
+      <label class="item item-input">
+        <textarea placeholder="请输入你的意见" rows="10" ng-model="feedbackData.content"></textarea>
+      </label>
+      <label class="item">
+        <button class="button button-block button-assertive">提交</button>
+      </label>
+    </form>
+  </ion-content>
+</ion-view>

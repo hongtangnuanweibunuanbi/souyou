@@ -1,0 +1,69 @@
+<ion-view view-title="我">
+  <ion-content>
+    <section>
+      <div class="my-info">
+        <img class="my-head" ng-src="{{myInfo.headpic}}">
+        <h1 class="my-name" ng-bind="myInfo.niceng"></h1>
+        <p class="my-autograph" ng-bind="myInfo.pname"></p>
+      </div>
+      <div class="my-activity">
+        <div class="row padding">
+          <div class="col-50 assertive my-integral">
+            积分：<span ng-bind="myInfo.integral"></span>
+          </div>
+          <div class="col-50 assertive my-sign">
+            <a class="button button-clear button-assertive my-sign-btn" href="#/tab/my-sign">签到</a>
+          </div>
+        </div>
+      </div>
+      <div class="my-box">
+        <ion-list>
+          <ion-item class="item-icon-left item-icon-right" href="#/tab/info">
+            <i class="icon ion-ios-person assertive"></i>
+            个人信息
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" href="#/tab/mall">
+            <i class="icon ion-social-dropbox energized"></i>
+            积分商城
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" href="#/tab/exchange">
+            <i class="icon ion-ios-list-outline royal"></i>
+            兑换记录
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="my-box">
+        <ion-list>
+          <ion-item class="item-icon-left item-icon-right" href="#/tab/my-post">
+            <i class="icon ion-ios-list positive"></i>
+            我发的贴
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <ion-item class="item-icon-left item-icon-right" href="#/tab/my-collection">
+            <i class="icon ion-ios-star balanced"></i>
+            我的收藏
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="my-box">
+        <ion-list>
+          <ion-item class="item-icon-left item-icon-right" href="#/tab/my-feedback">
+            <i class="icon ion-ios-compose calm"></i>
+            意见反馈
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+          <!--<ion-item class="item-icon-left item-icon-right" href="#">-->
+            <!--<i class="icon ion-information-circled dark"></i>-->
+            <!--版本信息-->
+            <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+          <!--</ion-item>-->
+        </ion-list>
+        <button class="button button-full button-assertive" ng-click="logout()">退出登录</button>
+      </div>
+    </section>
+  </ion-content>
+</ion-view>

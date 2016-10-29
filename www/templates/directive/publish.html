@@ -1,0 +1,21 @@
+<div class="card-post-btn">
+  <i class="icon ion-plus light"></i>
+</div>
+<div class="card-post-box">
+  <div class="post-theme">
+    <a href="#/tab/theme/{{forumId}}">
+      <div class="theme">
+        <i class="icon ion-ios-list-outline light"></i>
+      </div>
+      <p class="post-title dark">主题帖</p>
+    </a>
+  </div>
+  <div class="post-vote" ng-if="isadmin=='1'">
+    <a href="#/tab/vote/{{forumId}}">
+      <div class="vote">
+        <i class="icon ion-stats-bars light"></i>
+      </div>
+      <p class="post-title dark">投票贴</p>
+    </a>
+  </div>
+</div>
